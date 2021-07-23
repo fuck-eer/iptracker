@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MainAbs from "./components/Main/MainAbs";
+import Layout from "./components/UI/Layout/Layout";
+import PatternBG from "./components/UI/PatternBG/PatternBG";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<Layout>
+				<PatternBG />
+				<MainAbs />
+			</Layout>
+		</div>
+	);
 }
 
 export default App;
