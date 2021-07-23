@@ -19,6 +19,7 @@
 }
 .mainButton {
 	all: unset;
+	position: relative;
 	box-sizing: border-box;
 	padding: 0px;
 	width: 15%;
@@ -28,6 +29,30 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.invalid {
+	border: 3px solid #ff5050;
+	border-right: none;
+}
+
+.invalButt::before {
+	content: "invalid IP";
+	position: absolute;
+	top: 50%;
+	transform: translate(0%, -50%);
+	left: -70%;
+	border: 2px solid red;
+	padding: 2px 5px;
+	border-radius: 5px;
+	font-size: 10px;
+	color: red;
+	transition: all 0.3s;
+}
+
+.invalButt:hover::before {
+	background-color: #ff5050;
+	color: #fff;
 }
 
 @media screen and (min-width: 800px) {

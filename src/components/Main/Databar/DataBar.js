@@ -1,13 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import classes from "./DataBar.module.css";
 import DataBarItem from "./DataBarItem/DataBarItem";
 const DataBar = () => {
+	const { location, isp, ip } = useSelector((state) => state.locationSlice);
 	return (
 		<div className={classes.dataBar}>
-			<DataBarItem head={"ip address"} data={"192.212.172.441"} />
-			<DataBarItem head={"location"} data={"Brooklyn, NY 100001"} />
-			<DataBarItem head={"timezone"} data={"UTC - 5:00"} />
-			<DataBarItem head={"isp"} data={"Starlink datacomp"} />
+			<DataBarItem head={"ip address"} data={ip} />
+			<DataBarItem
+				head={"location"}
+				data={`${location.city}, ${location.country} ${location.postalCode}`}
+			/>
+			<DataBarItem head={"timezone"} data={`UTC ${location.timeZone} `} />
+			<DataBarItem head={"isp"} data={isp} />
 		</div>
 	);
 };
