@@ -18,9 +18,10 @@ const USerControl = () => {
 		if (!ip) {
 			return;
 		}
-		setisLoading(true);
+
+		https: setisLoading(true);
 		axios
-			.get("http://localhost:3050/ipdata/find/" + ip, {
+			.get("https://ipaddresstracker-backend.herokuapp.com/ipdata/find/" + ip, {
 				headers: {
 					Authorization: "Bearer " + identifier,
 				},
@@ -54,7 +55,7 @@ const USerControl = () => {
 
 		axios
 			.post(
-				"http://localhost:3050/ipdata",
+				"https://ipaddresstracker-backend.herokuapp.com/ipdata",
 				{ ip, city: location.city },
 				{
 					headers: {
@@ -77,7 +78,7 @@ const USerControl = () => {
 	const getIpList = useCallback(() => {
 		setisLoading(true);
 		axios
-			.get("http://localhost:3050/ipdata", {
+			.get("https://ipaddresstracker-backend.herokuapp.com/ipdata", {
 				headers: { Authorization: "Bearer " + identifier },
 			})
 			.then((e) => {
