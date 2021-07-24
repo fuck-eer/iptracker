@@ -13,4 +13,4 @@ const MainAbs = () => {
 	);
 };
 
-export default MainAbs;
+export default React.memo(MainAbs);

@@ -23,4 +23,4 @@ const SuggestionList = (props) => {
 	);
 };
 
-export default SuggestionList;
+export default React.memo(SuggestionList);

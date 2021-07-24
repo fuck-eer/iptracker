@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
-import Spinner2 from "../UI/Spinner/Spinner2";
+
 import LikeButton from "./LikeButton/LikeButton";
 import MinButton from "./minButtons/MinButton";
 import SuggestionList from "./SuggestionList/SuggestionList";
@@ -112,6 +112,7 @@ const USerControl = () => {
 		setshowList((prev) => !prev);
 	};
 
+	const llist = useMemo(() => ipList, [ipList]);
 	return (
 		<div className={classes.USerControl}>
 			{/* {isLoading && <Spinner2 />} */}
@@ -125,9 +126,9 @@ const USerControl = () => {
 				label={showList ? "Hide List" : "Show List"}
 				onButtClick={toggleList}
 			/>
-			{showList && <SuggestionList ips={ipList} />}
+			{showList && <SuggestionList ips={llist} />}
 		</div>
 	);
 };
 
-export default USerControl;
+export default React.memo(USerControl);
