@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Spinner2 from "../UI/Spinner/Spinner2";
 import LikeButton from "./LikeButton/LikeButton";
 import MinButton from "./minButtons/MinButton";
 import SuggestionList from "./SuggestionList/SuggestionList";
@@ -11,7 +12,7 @@ const USerControl = () => {
 	const [showList, setshowList] = useState(false);
 	const { identifier } = useSelector((state) => state.authSlice);
 	const { location, ip } = useSelector((state) => state.locationSlice);
-	const [isPresent, setisPresent] = useState(true);
+	const [isPresent, setisPresent] = useState(false);
 
 	const checkIfPresent = useCallback(() => {
 		if (!ip) {
@@ -36,7 +37,11 @@ const USerControl = () => {
 			})
 			.catch((err) => {
 				setisLoading(false);
-				alert(err.message);
+				if (err.response.data.msg === "userNotFound") {
+					return;
+				} else {
+					alert(err.message);
+				}
 			});
 	}, [identifier, ip]);
 
@@ -59,6 +64,7 @@ const USerControl = () => {
 			)
 			.then((e) => {
 				setisLoading(false);
+				setisPresent(true);
 				//update state
 				getIpList();
 			})
@@ -81,7 +87,11 @@ const USerControl = () => {
 			})
 			.catch((err) => {
 				setisLoading(false);
-				alert(err.message);
+				if (err.response.data.msg === "not saved history found") {
+					return;
+				} else {
+					alert(err.message);
+				}
 			});
 	}, [identifier]);
 
@@ -104,6 +114,8 @@ const USerControl = () => {
 
 	return (
 		<div className={classes.USerControl}>
+			{/* {isLoading && <Spinner2 />} */}
+
 			<LikeButton
 				label={isPresent ? "Saved" : "Save it!"}
 				isPresent={isPresent}
