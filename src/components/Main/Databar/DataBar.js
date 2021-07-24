@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import LikeButton from "../../UserControls/LikeButton/LikeButton";
 import classes from "./DataBar.module.css";
 import DataBarItem from "./DataBarItem/DataBarItem";
 const DataBar = () => {
@@ -13,6 +14,7 @@ const DataBar = () => {
 			/>
 			<DataBarItem head={"timezone"} data={`UTC ${location.timeZone} `} />
 			<DataBarItem head={"isp"} data={isp} />
+			{/* <LikeButton /> */}
 		</div>
 	);
 };

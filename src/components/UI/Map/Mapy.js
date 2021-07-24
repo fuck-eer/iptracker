@@ -1,6 +1,6 @@
 import React from "react";
 import "./Mapy.css";
-import { Map, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
+import { Map, TileLayer, Marker, Tooltip } from "react-leaflet";
 import { Icon } from "leaflet";
 import markerIcon from "../../../assets/icon-location.svg";
 import { useSelector } from "react-redux";

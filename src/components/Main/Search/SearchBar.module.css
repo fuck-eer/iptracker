@@ -17,6 +17,9 @@
 	background-color: #fff;
 	border-radius: 10px 0px 0px 10px;
 }
+.mainInput::placeholder {
+	font-size: 12px;
+}
 .mainButton {
 	all: unset;
 	position: relative;
@@ -29,6 +32,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
+}
+
+.mainButton:hover {
+	background-color: hsl(0, 0%, 17%);
 }
 
 .invalid {
@@ -36,27 +44,30 @@
 	border-right: none;
 }
 
-.invalButt::before {
-	content: "invalid IP";
-	position: absolute;
-	top: 50%;
-	transform: translate(0%, -50%);
-	left: -70%;
-	border: 2px solid red;
-	padding: 2px 5px;
-	border-radius: 5px;
-	font-size: 10px;
-	color: red;
-	transition: all 0.3s;
-}
-
-.invalButt:hover::before {
-	background-color: #ff5050;
-	color: #fff;
-}
-
 @media screen and (min-width: 800px) {
 	.search {
 		width: 50%;
+	}
+
+	.mainInput::placeholder {
+		font-size: 16px;
+	}
+	.invalButt::before {
+		content: "invalid IP";
+		position: absolute;
+		top: 50%;
+		transform: translate(0%, -50%);
+		left: -90%;
+		border: 2px solid red;
+		padding: 2px 5px;
+		border-radius: 5px;
+		font-size: 10px;
+		color: red;
+		transition: all 0.3s;
+	}
+
+	.invalButt:hover::before {
+		background-color: #ff5050;
+		color: #fff;
 	}
 }

@@ -4,15 +4,11 @@ import iconArrow from "../../../assets/icon-arrow.svg";
 import { useDispatch } from "react-redux";
 import { getMyIpDetails } from "../../../store/Actions/actionLocation";
 import useValidation from "../../../hooks/use-Validation";
+
 const SearchBar = () => {
 	const valFunc = (str) => {
 		if (str.length > 0) {
 			const iparr = str.split(".");
-			console.log(iparr);
-			let a = "";
-
-			console.log(isNaN(a));
-
 			if (iparr.length === 4) {
 				const indx = iparr.findIndex(
 					(e) => isNaN(e) || e.length === 0 || +e < 0 || +e > 255
@@ -51,20 +47,23 @@ const SearchBar = () => {
 		? `${classes.mainButton} ${classes.invalButt}`
 		: `${classes.mainButton}`;
 	console.log(hasError);
+
 	return (
-		<form onSubmit={onSub} className={classes.search}>
-			<input
-				onChange={onEVChangeHandler}
-				type='text'
-				onBlur={onBlurHandler}
-				value={ipAdd}
-				placeholder='Search for any IP address or domain'
-				className={Inputclassname}
-			/>
-			<button className={Buttonclassname}>
-				<img className={classes.iconarrow} src={iconArrow} alt='GO' />
-			</button>
-		</form>
+		<>
+			<form onSubmit={onSub} className={classes.search}>
+				<input
+					onChange={onEVChangeHandler}
+					type='text'
+					onBlur={onBlurHandler}
+					value={ipAdd}
+					placeholder='Search for any IP address or domain'
+					className={Inputclassname}
+				/>
+				<button className={Buttonclassname}>
+					<img className={classes.iconarrow} src={iconArrow} alt='GO' />
+				</button>
+			</form>
+		</>
 	);
 };
 

@@ -1,0 +1,36 @@
+.minButton {
+	all: unset;
+	cursor: pointer;
+	position: relative;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ff9671;
+	box-shadow: 0px 2px 10px #00000034;
+}
+
+.minButton img {
+	max-width: 50%;
+	max-height: 60%;
+}
+
+.minButton::before {
+	position: absolute;
+	content: "";
+	color: beige;
+}
+.minButton:hover::before {
+	content: attr(label);
+	color: beige;
+	right: 130%;
+	background-color: #2c3036;
+	padding: 10px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 12px;
+	white-space: nowrap;
+	color: #fff;
+}

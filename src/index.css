@@ -17,3 +17,14 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
+
+#spinner {
+	position: fixed;
+	margin-top: 0;
+
+	z-index: 100;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+}
