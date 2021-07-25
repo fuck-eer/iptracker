@@ -19,7 +19,7 @@ const USerControl = () => {
 			return;
 		}
 
-		https: setisLoading(true);
+		setisLoading(true);
 		axios
 			.get("https://ipaddresstracker-backend.herokuapp.com/ipdata/find/" + ip, {
 				headers: {
