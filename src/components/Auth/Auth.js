@@ -7,7 +7,7 @@ import "./Auth.css";
 const Auth = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		console.log("callingFor");
+		// console.log("callingFor");
 		const config = {
 			// should be same as the id of the container created on 3rd step
 			containerID: "sawo-container",
@@ -18,7 +18,7 @@ const Auth = () => {
 			// Add a callback here to handle the payload sent by sdk
 			onSuccess: (payload) => {
 				dispatch(atLoginAction(payload));
-				console.log(payload);
+				// console.log(payload);
 			},
 		};
 		const Sawo = new sawo(config);

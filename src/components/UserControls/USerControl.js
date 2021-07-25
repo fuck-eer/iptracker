@@ -82,7 +82,7 @@ const USerControl = () => {
 				headers: { Authorization: "Bearer " + identifier },
 			})
 			.then((e) => {
-				console.log(e.data);
+				// console.log(e.data);
 				setipList(e.data.storedIps);
 				setisLoading(false);
 			})

@@ -15,7 +15,7 @@ export const getMyIpDetails = (ip = "") => {
 			.then((e) => {
 				dispatch(loaderAction.setLoading(false));
 
-				console.log(e.data);
+				// console.log(e.data);
 				dispatch(locationActions.setIp(e.data));
 			})
 			.catch((err) => {

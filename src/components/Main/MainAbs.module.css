@@ -1,7 +1,8 @@
 .MainAbs {
 	position: absolute;
+	margin-top: 20px;
 	width: 95%;
-	height: 50%;
+	height: 60%;
 	left: 50%;
 	z-index: 5;
 	top: 30%;
@@ -9,7 +10,7 @@
 	transform: translate(-50%, -50%);
 	/* background-color: aquamarine; */
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	flex-flow: column nowrap;
 }

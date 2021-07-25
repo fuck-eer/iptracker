@@ -46,7 +46,7 @@ const SearchBar = () => {
 	const Buttonclassname = hasError
 		? `${classes.mainButton} ${classes.invalButt}`
 		: `${classes.mainButton}`;
-	console.log(hasError);
+	// console.log(hasError);
 
 	return (
 		<>
