@@ -7,6 +7,7 @@ import MinButton from "./minButtons/MinButton";
 import SuggestionList from "./SuggestionList/SuggestionList";
 import classes from "./UserControll.module.css";
 const USerControl = () => {
+	//state declarations
 	const [ipList, setipList] = useState([]);
 	const [isLoading, setisLoading] = useState(false);
 	const [showList, setshowList] = useState(false);
@@ -14,6 +15,7 @@ const USerControl = () => {
 	const { location, ip } = useSelector((state) => state.locationSlice);
 	const [isPresent, setisPresent] = useState(false);
 
+	//checks if ip is already saved
 	const checkIfPresent = useCallback(() => {
 		if (!ip) {
 			return;
@@ -45,11 +47,12 @@ const USerControl = () => {
 				}
 			});
 	}, [identifier, ip]);
-
+	//kicks on every ip change checks if it already exists
 	useEffect(() => {
 		checkIfPresent();
 	}, [checkIfPresent]);
 
+	//on Ip save
 	const postIpList = () => {
 		setisLoading(true);
 
@@ -75,6 +78,7 @@ const USerControl = () => {
 			});
 	};
 
+	//when fetchin ip
 	const getIpList = useCallback(() => {
 		setisLoading(true);
 		axios
@@ -96,23 +100,27 @@ const USerControl = () => {
 			});
 	}, [identifier]);
 
+	//fetch ip n initial load
 	useEffect(() => {
 		getIpList();
 		return () => {};
 	}, [getIpList]);
-
+	//on ip post
 	const onPostListToServer = () => {
+		//if present already
 		if (isPresent) {
 			return alert("already saved!");
 		}
-
+		//if not present
 		postIpList();
 	};
 
+	//toggle lsit view
 	const toggleList = () => {
 		setshowList((prev) => !prev);
 	};
 
+	//memoize list to save some re-evaluations
 	const llist = useMemo(() => ipList, [ipList]);
 	return (
 		<div className={classes.USerControl}>
@@ -127,7 +135,7 @@ const USerControl = () => {
 				label={showList ? "Hide List" : "Show List"}
 				onButtClick={toggleList}
 			/>
-			{showList && <SuggestionList ips={llist} />}
+			{showList && <SuggestionList isLoading={isLoading} ips={llist} />}
 		</div>
 	);
 };

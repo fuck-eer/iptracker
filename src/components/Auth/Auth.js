@@ -18,17 +18,23 @@ const Auth = () => {
 			// Add a callback here to handle the payload sent by sdk
 			onSuccess: (payload) => {
 				dispatch(atLoginAction(payload));
-				// console.log(payload);
 			},
 		};
 		const Sawo = new sawo(config);
 		Sawo.showForm();
-		// return () => {
-		// 	if (document.getElementById("sawo-container")) Sawo.removeForm();
-		// };
 	}, [dispatch]);
 	return (
-		<div id='sawo-container' style={{ height: "400px", width: "400px" }}></div>
+		<div
+			id='sawo-container'
+			style={{
+				height: "40%",
+				width: "40%",
+				minHeight: "300px",
+				minWidth: "300px",
+				maxHeight: "400px",
+				maxWidth: "400px",
+			}}
+		></div>
 	);
 };
 

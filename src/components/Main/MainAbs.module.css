@@ -14,3 +14,10 @@
 	align-items: center;
 	flex-flow: column nowrap;
 }
+
+@media screen and (min-width: 800px) {
+	.MainAbs {
+		height: 50%;
+		margin-top: 0;
+	}
+}

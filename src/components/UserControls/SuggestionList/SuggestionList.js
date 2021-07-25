@@ -1,4 +1,5 @@
 import React from "react";
+import Spinner2 from "../../UI/Spinner/Spinner2";
 
 import classes from "./SuggestionList.module.css";
 const SuggestionList = (props) => {
@@ -18,7 +19,9 @@ const SuggestionList = (props) => {
 	return (
 		<div className={classes.suggestionlist}>
 			<h6 className={classes.head}>Saved IPs</h6>
-			<div className={classes.holder}>{list}</div>
+			<div className={classes.holder}>
+				{props.isLoading ? <Spinner2 /> : list}
+			</div>
 		</div>
 	);
 };

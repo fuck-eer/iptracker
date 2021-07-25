@@ -5,6 +5,7 @@ import classes from "./DataBar.module.css";
 import DataBarItem from "./DataBarItem/DataBarItem";
 const DataBar = () => {
 	const { location, isp, ip } = useSelector((state) => state.locationSlice);
+	//data bar container
 	return (
 		<div className={classes.dataBar}>
 			<DataBarItem head={"ip address"} data={ip} />

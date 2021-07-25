@@ -4,8 +4,9 @@ import iconArrow from "../../../assets/icon-arrow.svg";
 import { useDispatch } from "react-redux";
 import { getMyIpDetails } from "../../../store/Actions/actionLocation";
 import useValidation from "../../../hooks/use-Validation";
-
+//renders searchbar
 const SearchBar = () => {
+	//ipv4 validation function
 	const valFunc = (str) => {
 		if (str.length > 0) {
 			const iparr = str.split(".");
@@ -23,6 +24,7 @@ const SearchBar = () => {
 		return false;
 	};
 	const dispatch = useDispatch();
+	//custom hook for input validation
 	const {
 		enteredValue: ipAdd,
 		isValid,
@@ -32,6 +34,7 @@ const SearchBar = () => {
 		hasError,
 	} = useValidation(valFunc);
 
+	//onform submit
 	const onSub = (event) => {
 		event.preventDefault();
 		if (isValid) {
@@ -40,6 +43,7 @@ const SearchBar = () => {
 		}
 	};
 
+	//invalid classes
 	const Inputclassname = hasError
 		? `${classes.mainInput} ${classes.invalid}`
 		: `${classes.mainInput}`;

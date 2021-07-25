@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//USING REDUX TOOLKIT AND WITH THIS WE CAN UPDATE THE STORE STATE DIRECTLY, BECAUSE TOOLKIT INTERNALLY USES IMMER PACKAGE WHICH ENSURES THE IMMUTABILITY OUT OF THE BOX  
+
+
 const initialState = {
 	ip: "",
 	location: {
@@ -19,6 +22,7 @@ const locationSlice = createSlice({
 	name: "locationSlice",
 	initialState,
 	reducers: {
+		//SET FETCHED LOCATON & IPDETAILS IN LOCATION STATE IN THE STORE
 		setIp(state, action) {
 			state.ip = action.payload.ip;
 			state.latitude = action.payload.location.lat;

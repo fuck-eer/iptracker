@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//USING REDUX TOOLKIT AND WITH THIS WE CAN UPDATE THE STORE STATE DIRECTLY, BECAUSE TOOLKIT INTERNALLY USES IMMER PACKAGE WHICH ENSURES THE IMMUTABILITY OUT OF THE BOX
+
 const initialState = {
 	userName: "",
 	userId: "",
@@ -8,10 +10,12 @@ const initialState = {
 	expTimeStamp: "",
 };
 
+//HANDLES THE AUTHENTICATION SLICE
 const authSlice = createSlice({
 	name: "authSlice",
 	initialState,
 	reducers: {
+		//REDUCER FOR LOGIN
 		atLogin(state, action) {
 			state.identifier = action.payload.identifier;
 			state.userName = action.payload.userName;
@@ -19,6 +23,7 @@ const authSlice = createSlice({
 			state.expTimeStamp = action.payload.expTimeStamp;
 			state.token = action.payload.token;
 		},
+		//REDUCER FOR LOGOUT
 		atLogout(state) {
 			state.identifier = "";
 			state.userName = "";

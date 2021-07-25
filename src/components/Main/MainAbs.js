@@ -5,6 +5,7 @@ import Heading from "./Heading/Heading";
 import classes from "./MainAbs.module.css";
 import SearchBar from "./Search/SearchBar";
 const MainAbs = () => {
+	//renders the main tab
 	return (
 		<div className={classes.MainAbs}>
 			<Heading />

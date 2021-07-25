@@ -7,18 +7,20 @@ import SpinnerLoader from "./components/UI/Spinner/Spinner";
 // import AuthPage from "";
 // import HomePage from "";
 import { autoLoginAction } from "./store/Actions/actionAuth";
-
+//LAZY LOADING THE COMPONENTS
 const AuthPage = React.lazy(() => import("./pages/AuthPage"));
+//LAZY LOADING THE COMPONENTS
 const HomePage = React.lazy(() => import("./pages/HomePage"));
 
 function App() {
 	const dispatch = useDispatch();
 	const { isLoading } = useSelector((state) => state.loaderSlice);
 	useEffect(() => {
+		//AUTOLOGIN
 		dispatch(autoLoginAction());
-		// dispatch(getMyIpDetails());
 	}, [dispatch]);
 	const token = useSelector((state) => state.authSlice.token);
+	//ROUTING INCLUSIVE
 	return (
 		<div className='App'>
 			<Layout>

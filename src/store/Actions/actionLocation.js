@@ -2,10 +2,12 @@ import axios from "axios";
 import { loaderAction } from "../loaderSlice";
 import { locationActions } from "../locationSlice";
 
+//ACTION CREATOR : FETCHS THE IP DETAILS
 export const getMyIpDetails = (ip = "") => {
 	return (dispatch) => {
-		// const ipadd = ip ? ip : "";
+		//DISPATCHES GLOBAL LOADER SPINNER
 		dispatch(loaderAction.setLoading(true));
+		//FETCH REQUEST
 		axios
 			.get(
 				`https://geo.ipify.org/api/v1?apiKey=${
@@ -13,13 +15,16 @@ export const getMyIpDetails = (ip = "") => {
 				}${ip ? "&ipAddress=" + ip : ""}`
 			)
 			.then((e) => {
+				//GLOBAL LOADER FALSE
 				dispatch(loaderAction.setLoading(false));
 
-				// console.log(e.data);
+				//DISPATCHES FOR LOCATION SET REDUCER
 				dispatch(locationActions.setIp(e.data));
 			})
 			.catch((err) => {
+				//GLOBAL LOADER FALSE
 				dispatch(loaderAction.setLoading(false));
+				//ERROR HANDLING
 				alert(err.message);
 			});
 	};
